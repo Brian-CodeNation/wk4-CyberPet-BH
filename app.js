@@ -5,14 +5,13 @@ let imgs = document.querySelectorAll('.imgs')
 
 // this is the generic cyberpet class that has properties and methods that can be
 // applied to any animal
-class cyberPet {
+class Animal {
     constructor(name) {
         this.name = name;
         this.hunger = 100;
         this.thirsty = 100;
         this.health = 100;
     }
-
 
     eat() {
         this.hunger = (this.hunger + 10 >= 100) ? 100 : this.hunger + 10; //ternary oporator
@@ -27,16 +26,12 @@ class cyberPet {
     }
 
 }
-// using the cyberpet class as a foundation the Dog class adds more specific
-// methods on top of what the cyberpet class has made
-class Dog extends cyberPet {
+
+class Dog extends Animal {
     constructor(name) {
-        // the super method gets all the properties from the cyberpet class and
-        // brings them into the dog class e.g. health, hunger, thirsty etc...
         super(name)
         this.happy = 100;
     }
-
 
     playFetch() {
         this.happy += 20;
@@ -45,15 +40,7 @@ class Dog extends cyberPet {
     }
 }
 
-// let newPet = new Dog("Doug")
-// newPet.playFetch();
-// newPet.drink()
-
-// console.log(newPet)
-
-// cat builds from the cyberpet again adding more relevant data for a cat as well
-// as the properties from the cyberpet class
-class Cat extends cyberPet {
+class Cat extends Animal {
     constructor(name) {
         super(name)
         this.lazy = 100;
@@ -66,7 +53,7 @@ class Cat extends cyberPet {
     }
 }
 
-class Rabbit extends cyberPet {
+class Rabbit extends Animal {
     constructor(name) {
         super(name)
         this.digging = 100;
@@ -78,14 +65,6 @@ class Rabbit extends cyberPet {
         this.thirsty -= 5;
     }
 }
-// create a new Cat class whilst passing it it's names
-// let newwPet = new Cat("Whiskers")
-// create a new Cat class whilst passing it it's names
-// newwPet.groom()
-// newwPet.drink()
-// logging the variable with the cat class to see it's new stats
-// console.log(newwPet)
-
 
 // function to update stats
 const updateStats = () => {
@@ -96,7 +75,6 @@ const updateStats = () => {
     document.getElementById('thirst').value = pet.thirsty
     document.getElementById('health').value = pet.health
 }
-
 
 // when feed button is clicked run the eat method from the pet class and update stats
 document.querySelector('#feedBtn').addEventListener('click', () => {
@@ -119,10 +97,6 @@ document.querySelectorAll('.choice').forEach((element) => { //checking each opti
             if (element.checked) {
                 animalImgs.style.display = 'block'
             }
-            //             let cat = document.getElementById('cat')
-            //             if (element.checked == cat) {
-            //                 animalImgs.style.
-            // }
 
         })
 
@@ -133,12 +107,9 @@ document.querySelectorAll('.choice').forEach((element) => { //checking each opti
 document.getElementById('form').addEventListener('submit', (event) => {
     event.preventDefault() //stops the form directing to another page 
     let chosenPet = '';
-    // console.log(chosenPet)
-    // checking the radio buttons to see what the user selected and store 
-    // selected value in chosenPet variable
+    
     document.querySelectorAll('.choice').forEach((element) => {
         if (element.checked) {
-            // storing the users choice in variable
             chosenPet = element.value
         }
     })
@@ -157,11 +128,9 @@ document.getElementById('form').addEventListener('submit', (event) => {
         //create rabbit
         pet = new Rabbit(petName)
     }
-    // console.log(petName)
-
 
     // display pet name
-    document.getElementById('displayPetName').textContent = pet.name;
+    document.getElementById('displayPetName').textContent = `Please keep ${pet.name} alive...`;
 
     // start the interval to reduce stats every second
     interval = setInterval(() => {
@@ -181,8 +150,6 @@ document.getElementById('form').addEventListener('submit', (event) => {
                 window.location.reload()
             })
             resetBtn.style.display = 'block'
-
-
         }
     }, 1000);
 
@@ -190,40 +157,4 @@ document.getElementById('form').addEventListener('submit', (event) => {
     document.getElementById('petChoiceWrapper').style.display = 'none';
     document.getElementById('statsWrapper').style.display = 'flex';
 
-
-
-});//closing bracket for function for dumbasses that cant see
-
-// if (chosenPet === Cat && pet.heaalth <= 90) {
-//     imgs.src = "CyberPet/petGifs/catsad.gif"
-// }
-
-
-
-
-// const igs = getElementById("awa")
-
-// function statChanges() {
-//     if (Cat.health <= 50) {
-//         igs.src = "CyberPet/petGifs/catsad.gif"
-//         statChanges()
-//     }
-
-// }
-// statChanges()
-
-// submitBtn.addEventListener('click', () => {
-//     console.log('clicked')
-//     document.querySelectorAll('.choice').forEach((element) => {
-//         console.log(element.checked) //this then would console log the different elements
-//     }) //this would return an array of all the classes with choice in it
-
-// })//the checked property checks if the radio buttons have been checked
-
-//ENTER KEY
-// document.addEventListener('keypress', (event) => {
-//     if (event.code === "Enter") {
-//         //handle pet choice
-//     }
-//     console.log(event.code)
-//})
+});
