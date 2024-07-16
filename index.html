@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Cyber Pet</title>
+</head>
+
+<body>
+    <h1 class="heading">
+        Cyberpet
+    </h1>
+
+
+    <div class="petsImg">
+        <div id="dog">
+            <img class="dogPic imgs" src="./petGifs/dog gif.gif" height="250px">
+        </div>
+        <div id="cat">
+            <img class="catPic imgs" src="./petGifs/cat gif.gif" height="250px">
+        </div>
+        <div id="rabbit">
+            <img class="rabbitPic imgs" src="./petGifs/bunny gif.gif" height="250px">
+        </div>
+    </div>
+
+    <section class="wrapper">
+        <div id="petChoiceWrapper">
+            <h2>Choose a cyber pet</h2>
+
+            <form id="form">
+                <!--type=radio means that it can be selected-->
+                <input type="radio" id="petDog" class="choice" value="dog" name="choice" required>
+                <label for="petDog">Dog</label><br>
+
+                <input type="radio" id="petCat" class="choice" value="cat" name="choice" required>
+                <label for="petCat">Cat</label><br>
+
+                <input type="radio" id="petRabbit" class="choice" value="rabbit" name="choice" required>
+                <label for="petRabbit">Rabbit</label>
+                <br><br>
+                <div class="namePetDiv">
+                    <!-- input for pet name -->
+                    <label class="namePet" for="name">Name your pet:</label>
+                    <input type="text" id="petName" placeholder="pet name" required>
+                    <br>
+                    <!--any of the REQUIRED in the inputs mean that it wont submit the form without it-->
+                    <button type="submit" id="submitBtn">Make Pet</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="msgNreset">
+        <h1 id="displayPetName"></h1>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <div id="statsWrapper">
+
+        <div class="stats">
+            <p id="hungerStat">Hunger: 100</p>
+            <button id="feedBtn">Feed</button>
+            <progress id="hunger" class="bar hunger" value="100" max="100"></progress>
+        </div>
+        <div class="stats">
+            <p id="thirstyStat">Thirsty: 100</p>
+            <button id="drinkBtn">Drink</button>
+            <progress id="thirst" class="bar thirst" value="100" max="100"></progress>
+        </div>
+        <div class="stats">
+            <p id="healthStat">Health: 100</p>
+            <progress id="health" class="bar health" value="100" max="100"></progress>
+        </div>
+    </div>
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

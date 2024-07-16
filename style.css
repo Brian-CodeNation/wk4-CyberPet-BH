@@ -1,0 +1,104 @@
+@font-face {
+    src: url(./summer-pixel-22-font/SummerPixel22Regular-jE0W7.ttf);
+    font-family: summer-pixel;
+
+}
+
+* {
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+    font-family: summer-pixel;
+    font-size: 30px;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+    margin: 20px 0 0 0;
+}
+
+.petsImg {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#petChoiceWrapper {
+    border: 2px solid;
+    padding: 0 20px 0 20px;
+}
+
+#message {
+    margin: -1rem 0 0 15rem;
+    color: red;
+}
+
+
+.namePetDiv {
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+
+#petName {
+    margin: 0 15px 15px 0;
+    padding: 15px 15px;
+}
+
+#statsWrapper {
+    display: none;
+    justify-content: center;
+}
+
+.stats {
+    padding: 5px 20px;
+}
+
+#feedBtn,
+#drinkBtn {
+    float: right;
+    margin: -2.5rem 0 0 -5rem;
+}
+
+#msgNreset {
+    display: flex;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+#resetBtn {
+    display: none;
+    justify-content: center;
+    float: right;
+}
+
+
+button {
+    margin: 0 15px 15px 0;
+    padding: 15px 15px;
+    font-size: 20px;
+}
+
+progress[value] {
+    display: inline-block;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    background: blue;
+    border-radius: 5px;
+}
